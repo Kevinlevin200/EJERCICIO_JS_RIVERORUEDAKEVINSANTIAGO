@@ -1,9 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Validador de delimitadores</title>
+  <title>Validador de Expresiones</title>
 </head>
 <body>
-  <input id="entrada" type="text" placeholder="Escribe la expresión aquí">
+
+  <h3>Ingresa una expresión:</h3>
+  <input type="text" id="entrada">
   <button id="boton">Validar</button>
+  <p id="resultado"></p>
+
+  <script>
+    function estaEquilibrado(expresion) {
+      let pila = [];
+      for (let i = 0; i < expresion.length; i++) {
+        let c = expresion[i];
+        if (c === '(' || c === '{' || c === '[') {
+          pila.push(c);
+        } else if (c === ')' || c === '}' || c === ']') {
+          let ultimo = pila.pop();
+          if (
+            (c === ')' && ultimo !== '(') ||
+            (c === '}' && ultimo !== '{') ||
+            (c === ']' && ultimo !== '[')
+          ) {
+            return false;
+          }
+        }
+      }
+      return pila.length === 0;
+    }
+
+    document.getElementById('boton').addEventListener('click', function() {
+      let expresion = document.getElementById('entrada').value;
+      let resultado = estaEquilibrado(expresion);
+      document.getElementById('resultado').textContent = resultado
+        ? 'Expresión equilibrada ✔'
+        : 'Expresión NO equilibrada ✖';
+    });
+  </script>
+
+</body>
+</html>
+
   <p id="resultado"></p>
