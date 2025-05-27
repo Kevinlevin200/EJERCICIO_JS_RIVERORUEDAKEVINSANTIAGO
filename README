@@ -1,0 +1,32 @@
+# Validador de Delimitadores
+
+Este es un proyecto simple hecho en HTML y JavaScript que permite verificar si los delimitadores en una expresión están equilibrados. Los delimitadores que se validan son:
+
+- Paréntesis: `()`
+- Llaves: `{}`  
+- Corchetes: `[]`
+
+## Cómo funciona?
+
+El usuario ingresa una expresión en un campo de texto (por ejemplo: `({[]})`) y al presionar el botón **Validar**, se evalúa si los delimitadores están correctamente abiertos y cerrados.
+
+### ✔️ Ejemplos de expresiones equilibradas:
+- `({[]})`
+- `()[]{}`
+- `[{()}]`
+
+### Ejemplos de expresiones no equilibradas:
+- `([)]`
+- `({[})`
+- `((())`
+
+## Estructura del código
+
+### HTML
+
+El archivo contiene lo mínimo necesario:
+
+   html
+<input id="entrada" type="text" placeholder="Escribe la expresión aquí">
+<button id="boton">Validar</button>
+<p id="resultado"></p>
